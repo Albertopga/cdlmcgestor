@@ -1,4 +1,4 @@
-import './Auth.scss'
+import './style.scss'
 
 import React, { useState } from 'react'
 import AuthOptions from '../../components/Auth/AuthOptions'
@@ -8,18 +8,19 @@ import BackgroundAuth from '../../assets/jpg/background-auth.jpg'
 import LogoNameWhite  from '../../assets/png/logo-name-white.png'
 
 export default function Auth() {
-  const [selectedForm, setselectedForm] = useState(null);
+  const [selectedForm, setSelectedForm] = useState(null);
 
   const handlerForm = () => {
-    switch (selectedForm) {
-      case 'login':
-        return <LoginForm/>
-      case 'register':
-        return <RegisterForm/>    
-      default:
-        return <AuthOptions/>;
+    const defaultForm = <AuthOptions setSelectedForm= {setSelectedForm} />
+    const formOptions = {
+      'login': <LoginForm/>,
+      'register': <RegisterForm AuthOptions setSelectedForm= {setSelectedForm}/>   
     }
+
+    return formOptions[selectedForm] || defaultForm;
   }
+
+
   return (
     <div 
       className='auth' 
