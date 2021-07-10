@@ -13,7 +13,7 @@ function LeftBar(props) {
   const [titleModal, setTitleModal] = useState(null);
   const [contentModal, setcontentModal] = useState(null);
 
-  console.log(userAdmin)
+
   useEffect(() => {
     isUserAdmin(user.uid)
     .then( res =>{
@@ -21,9 +21,9 @@ function LeftBar(props) {
     });
   }, [user])
 
-  const handlerMenu = ( (e, menu) =>{
-    setActiveMenu(menu.to)
-  })
+  useEffect(() => {
+    setActiveMenu(location.pathname);
+  }, [location]);
 
   const handlerModal = (type) =>{
     switch (type) {
@@ -45,10 +45,10 @@ function LeftBar(props) {
     <>
       <Menu className='menu' vertical>
         <div className='top'>
-          <Menu.Item as={Link} to='/' name='home' active={activeMenu === '/'} onClick={handlerMenu}>
+          <Menu.Item as={Link} to='/' name='home' active={activeMenu === '/'}>
             <Icon name='home'/> Inicio
           </Menu.Item>
-          <Menu.Item as={Link} to='/orders' name='order' active={activeMenu === '/orders'} onClick={handlerMenu}>
+          <Menu.Item as={Link} to='/orders' name='order' active={activeMenu === '/orders'}>
             <Icon name='ordered list'/> Pedidos
           </Menu.Item>
           {userAdmin && (
