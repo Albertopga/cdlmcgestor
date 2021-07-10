@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import {ToastContainer} from 'react-toastify';
 import firebase from './utils/Firebase';
 import 'firebase/auth';
+
 import Auth from './pages/Auth/Auth';
-import {ToastContainer} from 'react-toastify';
+import LoggedLayout from './Layouts/LoggedLayout/index';
 
 function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   firebase.auth().onAuthStateChanged(currentUser => {
-    console.log(currentUser)
     if(!currentUser?.emailVerified){
       firebase.auth().signOut();
       setUser(null);
@@ -24,7 +25,7 @@ function App() {
 
   return(
     <>
-      {user ? <UserLogged/> : <Auth/>}
+      {user ? <LoggedLayout user={user}/> : <Auth/>}
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -41,23 +42,4 @@ function App() {
   )
 }
 
-function UserLogged() {
-  const loguot = () => {
-    firebase.auth().signOut();
-  }
-
-  return (
-    <div 
-      style= {{
-        display: "flex",
-        alignItems: "center", 
-        justifyContent: "center", 
-        flexDirection: "column", 
-        height: "100vh"}}
-    >
-      <h1>Usuario Logeado</h1>   
-      <button onClick={loguot}>Cerrar Sesión</button>
-    </div>
-  )
-}
 export default App;

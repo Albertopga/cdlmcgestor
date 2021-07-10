@@ -19,6 +19,16 @@
     opacity: 0.75;
     z-index: 0;
   }
+  &__ligth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: $background-light;
+    opacity: 0.75;
+    z-index: 0;
+  }
 
   &__box {
     position: relative;

@@ -1,6 +1,6 @@
 @import "../../../scss/index.scss";
 
-.register-form {
+.login-form {
   margin-top: 50px;
 
   h1 {
@@ -58,7 +58,19 @@
       padding-left: 15px;
     }
   }
+  .resend-verification-email {
+    color: $font-light;
+    padding-left: 20 px 20px 0 20px;
+    text-align: center;
 
+    span {
+      color: $primary-color;
+      font-weight: bold;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
   &__options {
     margin-top: 50px;
     color: $font-light;
