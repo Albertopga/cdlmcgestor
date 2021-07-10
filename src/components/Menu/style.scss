@@ -2,11 +2,12 @@
 
 .ui.menu.vertical.menu {
   display: flex;
+  background-color: $background-light;
   justify-content: space-between !important;
   border-radius: 0;
-  background-color: $background-light;
-  height: 100%;
+  height: 90vh;
   width: 100%;
+  padding-top: 50px;
 
   .item,
   a.item {
