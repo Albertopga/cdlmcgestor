@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import firebase from '../../../utils/Firebase';
 import {validateEmail} from '../../../utils/Validations';
 import 'firebase/auth';
+import alertError from '../../../utils/AlertErrors';
 
 export default function LoginForm(props) {
   const { setSelectedForm } = props;
@@ -42,7 +43,7 @@ export default function LoginForm(props) {
         }
       })
       .catch( err => {
-        handlerErrors(err.code)
+        alertError(err.code)
       })
       .finally( ()=>{
         setIsLoading(false);
@@ -121,7 +122,7 @@ function ButtonResetSendEmailVerification(props){
       toast.success('Email de verificación enviado');
     })
     .catch( err =>{
-      handlerErrors(err.code)
+      alertError(err.code)
     })
     .finally(()=>{
       setIsLoading(false);
@@ -135,12 +136,3 @@ function ButtonResetSendEmailVerification(props){
   )
 }
 
-function handlerErrors(code) {
-  const errorCodes ={
-    'auth/user-not-found': 'El usuario indicado no existe.',
-    'auth/wrong-password': 'Contraseña inconrrecta.',
-    'auth/too-manu-request': 'Se han solicitado demasiadas peticiones de reenvio de email de confirmación. Espere unos minutos.'
-  }
-
-  toast.warning(errorCodes[code] || 'Algo ha fallado' );
-}

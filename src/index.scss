@@ -1,8 +1,6 @@
 @import "./scss/index.scss";
 
 body {
-  color: $font-light;
-  background-color: $background-grey-dark;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -43,6 +41,9 @@ code {
           color: $font-light;
           border: 0;
         }
+      }
+      i {
+        color: $font-light;
       }
     }
   }

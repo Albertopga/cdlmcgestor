@@ -3,6 +3,8 @@ import { Menu, Icon } from 'semantic-ui-react'
 import { Link, withRouter} from 'react-router-dom'
 import { isUserAdmin } from '../../utils/Api'
 import BasicModal from '../Modals/BasicModal'
+import AddOrderForm from '../Orders/AddOrderForm/AddOrderForm'
+
 import './style.scss'
 
 function LeftBar(props) {
@@ -29,7 +31,7 @@ function LeftBar(props) {
     switch (type) {
       case 'new-order':
         setTitleModal('Nuevo Pedido');
-        setcontentModal('<h2>Formulario Nuevo pedido</h2>');
+        setcontentModal(<AddOrderForm/>);
         setShowModal(true);
         break;
     

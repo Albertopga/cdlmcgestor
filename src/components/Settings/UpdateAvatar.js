@@ -26,10 +26,10 @@ export default function UpdateAvatar(props) {
 
   }
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/png, image/jpeg',
     noKeyboard: true,
-    onDrop
+    onDrop   
   });
 
   const updateUserAvatar = ()  => {

@@ -1,0 +1,30 @@
+@import "../../../scss/index.scss";
+
+.add-order-form {
+  #details {
+    background-color: $background-grey;
+    border: 0;
+    font-size: 16px;
+    color: $font-light;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $background-grey-hover;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+  .ui.accordion .title:not(.ui) {
+    font-size: 15px !important;
+    line-height: 1.28571429em !important;
+    margin: calc(2rem - 0.14285714em) 0 1rem !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+
+    span {
+      font-size: 12px;
+      color: $font-grey;
+    }
+  }
+}
